@@ -1,0 +1,84 @@
+
+{% extends "layout.html" %}
+{% import "includes/macro.html" as object %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Request an account
+      </h1>
+      <p>
+        Only staff members of the National Poisons Information Service can view the UK cosmetic products database.
+      </p>
+      <p class='govuk-!-margin-bottom-6'>
+        Your account request will responded to within 5 working days.
+      </p>
+      <form class="form" action="/account-requested" method="post">
+        {% call govukFieldset({
+          legend: {
+            text: "Your details",
+            classes: "govuk-fieldset__legend--m",
+            isPageHeading: true
+          }
+        }) %}
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          id: "user-name",
+          name: "user-name"
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Work email address"
+          },
+          id: "user-email",
+          name: "user-email"
+        }) }}
+        {% endcall %}
+
+        {% from "input/macro.njk" import govukInput %}
+        {% call govukFieldset({
+          legend: {
+            text: "Your line manager’s details",
+            classes: "govuk-fieldset__legend--m",
+            isPageHeading: true
+          }
+        }) %}
+        {{ govukInput({
+          label: {
+            text: "Their full name"
+          },
+          id: "line-manager-name",
+          name: "line-manager-name"
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Their email address"
+          },
+          id: "line-manager-email",
+          name: "line-manager-email"
+        }) }}
+        {% endcall %}
+        {{ govukButton({
+          text: "Request account"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

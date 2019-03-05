@@ -1,0 +1,60 @@
+
+{% extends "layout.html" %}
+{% import "includes/macro.html" as object %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Your details
+      </h1>
+      <form class="form" action="/two-factor" method="post">
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          id: "user-name",
+          name: "user-name"
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Mobile number"
+          },
+          hint: {
+            text: "We’ll send you a security code by text message"
+          },
+          id: "user-mobile-number",
+          name: "user-mobile-number"
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Password"
+          },
+          hint: {
+            text: "At least 8 characters"
+          },
+          id: "user-password",
+          name: "user-password",
+          type: "password"
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

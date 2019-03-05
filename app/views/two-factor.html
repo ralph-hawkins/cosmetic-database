@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+{% import "includes/macro.html" as object %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Check your phone
+      </h1>
+      <p>
+        We’ve sent you a text message with a security code.
+      </p>
+      <form class="form" action="/cosmetic-products" method="post">
+        {{ govukInput({
+          label: {
+            text: "Text message code"
+          },
+          id: "2fa-code",
+          name: "2fa-code",
+          classes: "govuk-input--width-4"
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+      <a href='/text-not-recieved' class='govuk-body'>
+        Not recieved a text message?
+      </a>
+    </div>
+  </div>
+{% endblock %}

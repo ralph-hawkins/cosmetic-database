@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+{% import "includes/macro.html" as object %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        UK cosmetic product database
+      </h1>
+      <p class='govuk-body-l govuk-!-margin-bottom-6'>
+        <a href='/sign-in'>Sign in</a> to view cosmetic products for medical inquries.
+      </p>
+      <h2 class='govuk-heading-m'>
+        Request an account
+      </h2>
+      {# 
+        Question
+        - not sure if employees is the right way to refer to the users
+        - also if its employees of NPIS
+        #}
+      <p>
+        Only employees of the National Poisons Information Service can view the cosmetic products database.
+      </p>
+      <p>
+        <a href='/request-an-account'>Request an account</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}

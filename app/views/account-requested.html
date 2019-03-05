@@ -1,0 +1,25 @@
+
+{% extends "layout.html" %}
+{% import "includes/macro.html" as object %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Account request sent
+      </h1>
+      <p>
+        <span class='govuk-!-font-weight-bold'>Request reference:</span> HDJ2123F
+      </p>
+      <p>
+        You will be contacted about your request within 5 working days.
+      </p>
+      {# 'govuk-link--no-visited-state' for prototype only #}
+      <a href='/' class='govuk-body govuk-link--no-visited-state'>
+        Return to home page
+      </a>
+    </div>
+  </div>
+
+{% endblock %}

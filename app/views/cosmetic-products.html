@@ -1,0 +1,63 @@
+
+{% extends "layout.html" %}
+{% import "includes/macro.html" as object %}
+
+{% block beforeContent %}
+  {% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Cosmetic products
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {% from "input/macro.njk" import govukInput %}
+      <form id="search" method="get" role="search">
+        {{ govukInput({
+          label: {
+            text: "Search"
+          },
+          id: "search",
+          name: "search",
+          value: data.search
+        }) }}
+
+    </form>
+    <script type="text/javascript">
+      var form = document.querySelector('form#search')
+      document.querySelectorAll('input[name="legislation"]').forEach(function(element) {
+        element.addEventListener('input', function() { form.submit() })
+      })
+    </script>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <ul class='product-list'>
+        {% set searchResults = data.docs | searchAndFilter(data.search, (data.legislation | normaliseMultiQueryParam)) %}
+        {% from "includes/macro.html" import docResult %}
+        {% for doc in searchResults %} 
+          {{ docResult(doc) }}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% macro selectOptions(config) %}
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-heading-s">
+        {{ config.label }}
+      </h1>
+    </legend>
+    {% for option in config.options %}
+      {% if option == "Pyrotechnic articles" %}
+      {% endif %}
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="{{loop.index}}" name="legislation" type="checkbox" value="{{option}}" {% if config.checked | includes(option) %}checked{% endif %}>
+        <label class="govuk-label govuk-checkboxes__label" for="{{loop.index}}">
+          {{ option }}
+        </label>
+      </div>
+    {% endfor %}
+  </fieldset>
+</div>
+
+{% endmacro %}
+
+{% macro docResult(doc) %}
+  <li class="product-item">
+    <div class='product-image'>
+    </div>
+    <h3 class='govuk-heading-m govuk-!-margin-bottom-1'>
+      <a href="product?id={{doc.id}}">
+        {{ doc.product.productName }}
+      </a>
+    </h3>
+    <p class='govuk-!-margin-bottom-3'>{{ doc.ukResponsiblePerson.name }}</p>
+    <p class='govuk-!-margin-bottom-1'>{{ doc.product.subSubCategory }}</p>
+    <p class='govuk-!-margin-bottom-2'>Added: {{ doc.product.dateAdded }}</p>
+    <div class='clearfix'>
+      &nbsp;
+    </div>
+  </li>
+{% endmacro %}

@@ -1,0 +1,154 @@
+
+{% extends "layout.html" %}
+{% import "includes/macro.html" as object %}
+
+{% block beforeContent %}
+  {% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  {% set doc = data.docs | withId(data.id) %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{doc.body.name}}
+      </h1>
+      <dl class='govuk-body-s'>
+        <dt class=''>Last updated:</dt>
+        <dd class="">
+          {{doc.body.lastUpdated}}
+        </dd>
+      </dl>
+{#       <dl>
+        <dt class="govuk-body-s">Authorised by:</dt>
+        <dd class="govuk-body-s">
+          {% for authoriser in doc.body.authorisedBy %}
+            <a href='#'>{{authoriser}}</a>
+          {% endfor %}
+        </dd>
+      </dl> #}
+      <dl class='govuk-body-m'>
+        <dt class=''>
+          Approved body number:
+        </dt>
+        <dd class=''>
+          UKAB–{{doc.body.number}}
+        </dd>
+        <dt class=''>
+          Type of organisation:
+        </dt>
+        <dd class=''>
+          {{doc.body.bodyType}}
+        </dd>
+      </dl>
+
+      <h3 class='govuk-heading-m'>
+        Locations
+      </h3>
+      <dl class='govuk-body-m'>
+        <dt class=''>
+          Registered office location:
+        </dt>
+        <dd class=''>
+          UK
+        </dd>
+      </dl>
+      <dl class='govuk-body-m'>
+        <dt class=''>
+          Testing locations:
+        </dt>
+        <dd class=''>
+          UK<br>
+          China
+        </dd>
+      </dl>
+
+      <h3 class='govuk-heading-m'>
+        Contact information
+      </h3>
+      <ul class='govuk-list govuk-!-padding-bottom-6'>
+        <li class=''>
+          <a href='{{doc.body.contact.website}}'>{{doc.body.contact.website}}</a>
+        </li>
+        <li class=''>
+          {{doc.body.contact.email}}
+        </li>
+        <li class=''>
+          {{doc.body.contact.phoneNumber}}
+        </li>
+      </ul>
+
+    </div>
+    <div class='govuk-grid-column-full'>
+      <h2 class='govuk-heading-l govuk-!-margin-bottom-4'>
+        Accredited to certify
+      </h2>
+      {% for acc in doc.accs %}
+        <h2 class='govuk-heading-m'>
+          {{acc.name}}
+        </h2>
+        <table class='govuk-body-m legislation'>
+          <thead>
+            <tr>
+              <th>
+                Products
+              </th>
+              <th>
+                Procedures
+              </th>
+              <th>
+                Annexes
+              </th>
+              <th>
+                Limitations
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in acc.rows %}
+              <tr>
+                <td>
+                  <ul class='govuk-list'>
+                    {% for product in row.products %}
+                      <li>{{product}}</li>
+                    {% endfor %}
+                  </ul>
+                </td>
+                <td>
+                  <ul class='govuk-list'>
+                    {% for procedure in row.procedures %}
+                      <li>{{procedure}}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                  <ul class='govuk-list'>
+                      {% if row.limitations | length == 0 %}
+                          None
+                        {% else %}
+                        {% for limitation in row.limitations %}
+                          <li>{{limitation}}</li>
+                        {% endfor %}
+                      {% endif %}
+                    </ul>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,190 @@
+
+{% extends "layout.html" %}
+{% import "includes/macro.html" as object %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "Search cosmetic products",
+        href: "/cosmetic-products"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  {% set doc = data.docs | withId(data.id) %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
+        {{ doc.product.productName }}
+      </h1>
+      <p class='govuk-body-l govuk-!-margin-bottom-2'>
+        {{ doc.ukResponsiblePerson.name }}
+      </p>
+      <p>
+        {{ doc.product.category }}, 
+        <span class='lowercase'>{{ doc.product.subCategory }}. {{ doc.product.subSubCategory }}</span>
+      </p>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class='govuk-grid-column-one-third'>
+      <div class='product-image-large'>
+        &nbsp;
+      </div>
+    </div>
+    <div class='govuk-grid-column-two-thirds'>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Formulation</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Ethanol
+            </th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              {{ doc.product.ethanol }}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Isopropanol
+            </th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              {{ doc.product.isopropanol }}
+            </td>
+          </tr>
+          {% if doc.product.essentialOils %}
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Essential oils
+            </th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              {{ doc.product.essentialOils }}
+            </td>
+          </tr>
+          {% endif %}
+          {% if doc.product.camphor %}
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Camphor
+            </th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              {{ doc.product.camphor }}
+            </td>
+          </tr>
+          {% endif %}
+          {% if doc.product.eucalyptol %}
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Eucalyptol
+            </th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              {{ doc.product.eucalyptol }}
+            </td>
+          </tr>
+          {% endif %}
+          {% if doc.product.vitaminAOrDerivatives %}
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Vitamin A or its derivatives
+            </th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              {{ doc.product.vitaminAOrDerivatives }}
+            </td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Substances</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              CMRs
+            </th>
+            <td class="govuk-table__cell">
+              {{ doc.product.cmr }}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Nanomaterials
+            </th>
+            <td class="govuk-table__cell">
+              {{ doc.product.nanomaterials }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Responsible person</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              UK resposible person
+            </th>
+            <td class="govuk-table__cell">
+              {{ doc.ukResponsiblePerson.name }}
+            </td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Address
+            </th>
+            <td class="govuk-table__cell">
+              {{ doc.ukResponsiblePerson.address.address1 }}<br>
+              {% if doc.ukResponsiblePerson.address.address2 %}
+                {{ doc.ukResponsiblePerson.address.address2 }}<br>
+              {% endif %}
+              {% if doc.ukResponsiblePerson.address.townOrCity %}
+                {{ doc.ukResponsiblePerson.address.townOrCity }}<br>
+              {% endif %}
+              {% if doc.ukResponsiblePerson.address.county %}
+                {{ doc.ukResponsiblePerson.address.county }}<br>
+              {% endif %}
+              {{ doc.ukResponsiblePerson.address.postCode }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Contact person</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Contact person
+            </th>
+            <td class="govuk-table__cell">
+              {{ doc.contactPerson.fullName }}
+            </td>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">
+                Phone Number
+              </th>
+              <td class="govuk-table__cell">
+                {{ doc.contactPerson.phone }}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">
+                Email
+              </th>
+              <td class="govuk-table__cell">
+                {{ doc.contactPerson.email }}
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
