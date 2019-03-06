@@ -87,7 +87,8 @@ module.exports = {
         eucalyptol: '0.1%',
         vitaminAOrDerivatives: '1%',
         cmr: 'None',
-        nanomaterials: 'None'
+        nanomaterials: 'None',
+        formulationType: 'Frame formulation'
       }
     },
     {
@@ -120,7 +121,8 @@ module.exports = {
         eucalyptol: '0.1%',
         vitaminAOrDerivatives: '1%',
         cmr: 'None',
-        nanomaterials: 'None'
+        nanomaterials: 'None',
+        formulationType: 'Frame formulation'
       }
     }
   ]

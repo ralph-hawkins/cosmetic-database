@@ -26,7 +26,7 @@
         Only staff members of the National Poisons Information Service can view the UK cosmetic products database.
       </p>
       <p class='govuk-!-margin-bottom-6'>
-        Your account request will responded to within 5 working days.
+        We will respond to your account request within 5 working days.
       </p>
       <form class="form" action="/account-requested" method="post">
         {% call govukFieldset({
@@ -69,14 +69,14 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Their email address"
+            text: "Their work email address"
           },
           id: "line-manager-email",
           name: "line-manager-email"
         }) }}
         {% endcall %}
         {{ govukButton({
-          text: "Request account"
+          text: "Request an account"
         }) }}
       </form>
     </div>

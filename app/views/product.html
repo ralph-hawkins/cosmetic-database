@@ -3,6 +3,7 @@
 {% import "includes/macro.html" as object %}
 {% from "input/macro.njk" import govukInput %}
 {% from "button/macro.njk" import govukButton %}
+{% from "details/macro.njk" import govukDetails %}
 
 {% block beforeContent %}
   {% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
@@ -32,7 +33,7 @@
       </p>
       <p>
         {{ doc.product.category }}, 
-        <span class='lowercase'>{{ doc.product.subCategory }}. {{ doc.product.subSubCategory }}</span>
+        <span class='lowercase'>{{ doc.product.subCategory }}, {{ doc.product.subSubCategory }}</span>
       </p>
     </div>
   </div>
@@ -43,7 +44,7 @@
       </div>
     </div>
     <div class='govuk-grid-column-two-thirds'>
-      <table class="govuk-table">
+      <table class="govuk-table govuk-!-margin-bottom-3">
         <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Formulation</caption>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
@@ -104,6 +105,13 @@
           {% endif %}
         </tbody>
       </table>
+
+      {{ govukDetails({
+        summaryText: "View frame formulation",
+        text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.",
+        classes: "govuk-!-margin-bottom-10"
+      }) }}
+
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Substances</caption>
         <tbody class="govuk-table__body">
@@ -125,12 +133,13 @@
           </tr>
         </tbody>
       </table>
+
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Responsible person</caption>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="row">
-              UK resposible person
+              UK responsible person
             </th>
             <td class="govuk-table__cell">
               {{ doc.ukResponsiblePerson.name }}
@@ -157,6 +166,7 @@
           </tr>
         </tbody>
       </table>
+
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Contact person</caption>
         <tbody class="govuk-table__body">
@@ -169,7 +179,7 @@
             </td>
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">
-                Phone Number
+                Phone number
               </th>
               <td class="govuk-table__cell">
                 {{ doc.contactPerson.phone }}
