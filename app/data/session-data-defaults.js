@@ -214,7 +214,7 @@ module.exports = {
         phone: '03069 990643'
       },
       product: {
-        productName: 'Pixona with aloe vera',
+        productName: 'Tradaxa',
         category: 'Skin',
         subCategory: 'Skin care products',
         subSubCategory: 'Skin lightening products',
