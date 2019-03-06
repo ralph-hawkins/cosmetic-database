@@ -59,6 +59,7 @@ module.exports = {
   docs: [
     {
       id: '0',
+      preBrexit: 'true',
       ukResponsiblePerson: {
         name: 'Perfumeza',
         address: {
@@ -93,6 +94,7 @@ module.exports = {
     },
     {
       id: '1',
+      preBrexit: 'false',
       ukResponsiblePerson: {
         name: 'Nutrimodel',
         address: {
@@ -103,6 +105,17 @@ module.exports = {
           postCode: 'KW12 7YE'
         }
       },
+      euResponsiblePerson: {
+        name: 'Nutrimodel',
+        address: {
+          address1: '48  rue des Chaligny',
+          address2: '',
+          townOrCity: 'Nice',
+          county: 'Provence-Alpes-Côte d',
+          postCode: '06000',
+          country: 'France'
+        }
+      },
       contactPerson: {
         fullName: 'Tom Wilkinson',
         email: 'tomwilkinson@nutrimodel.com',
@@ -110,6 +123,98 @@ module.exports = {
       },
       product: {
         productName: 'Zytrexo',
+        category: 'Skin',
+        subCategory: 'Skin care products',
+        subSubCategory: 'Skin lightening products',
+        dateAdded: '3 March 2019',
+        ethanol: '0%',
+        isopropanol: '0%',
+        essentialOils: '0%',
+        camphor: '0.5%',
+        eucalyptol: '0.1%',
+        vitaminAOrDerivatives: '1%',
+        cmr: 'None',
+        nanomaterials: 'None',
+        formulationType: 'Frame formulation'
+      }
+    },
+    {
+      id: '2',
+      preBrexit: 'true',
+      ukResponsiblePerson: {
+        name: 'COSMETIN',
+        address: {
+          address1: '70  Uxbridge Road',
+          address2: '',
+          townOrCity: 'Skinnet',
+          county: '',
+          postCode: 'KW12 7YE'
+        }
+      },
+      euResponsiblePerson: {
+        name: 'COSMETIN',
+        address: {
+          address1: '48  rue des Chaligny',
+          address2: '',
+          townOrCity: 'Nice',
+          county: 'Provence-Alpes-Côte d',
+          postCode: '06000',
+          country: 'France'
+        }
+      },
+      contactPerson: {
+        fullName: 'Olivia Garcia',
+        email: 'oliviagarcia@cosmetin.com',
+        phone: '03069 990643'
+      },
+      product: {
+        productName: 'Pixona with aloe vera',
+        category: 'Skin',
+        subCategory: 'Skin care products',
+        subSubCategory: 'Skin lightening products',
+        dateAdded: '3 March 2019',
+        ethanol: '0%',
+        isopropanol: '0%',
+        essentialOils: '0%',
+        camphor: '0.5%',
+        eucalyptol: '0.1%',
+        vitaminAOrDerivatives: '1%',
+        cmr: 'None',
+        nanomaterials: 'None',
+        formulationType: 'Frame formulation'
+      }
+    },
+    {
+      id: '3',
+      preBrexit: 'true',
+      ukResponsiblePerson: {
+        name: 'Getsweet',
+        address: {
+          address1: '70  Uxbridge Road',
+          address2: '',
+          townOrCity: 'Skinnet',
+          county: '',
+          postCode: 'KW12 7YE'
+        }
+      },
+      euResponsiblePerson: {
+        name: 'Getsweet',
+        address: {
+          address1: '48  rue des Chaligny',
+          address2: '',
+          townOrCity: 'Nice',
+          county: 'Provence-Alpes-Côte d',
+          postCode: '06000',
+          country: 'France'
+        }
+      },
+      contactPerson: {
+        fullName: 'Charlotte Rodriguez',
+        email: 'charlotterodriguez@getsweet.com',
+        phone: '03069 990643'
+      },
+      product: {
+        productName: 'Pixona with aloe vera',
         category: 'Skin',
         subCategory: 'Skin care products',
         subSubCategory: 'Skin lightening products',

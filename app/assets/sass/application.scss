@@ -38,6 +38,20 @@ $govuk-global-styles: true;
   }
 }
 
+.formulation-table {
+  .govuk-table__body {
+    margin-bottom: 0px;
+    .govuk-table__header {
+      width: 90% !important;
+      font-weight: normal !important;
+    }
+  }
+}
+
+.govuk-details__text {
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
 
 .product-image-large {
   width: 100%;
@@ -56,13 +70,16 @@ $govuk-global-styles: true;
   .product-item {
     border-bottom: 1px solid black;
     margin-bottom: 20px;
+    .product-info {
+      float: left;
+    }
     &:last-of-type {
       border-bottom: 0px;
       margin-bottom: 0px;
     }
     list-style: none;
     .product-image {
-      float: left;
+      float: right;
       width: 50%;
       height: 300px;
       display: block;

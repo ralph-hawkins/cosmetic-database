@@ -23,16 +23,20 @@
 
 {% macro docResult(doc) %}
   <li class="product-item">
-    <div class='product-image'>
+    <div class='product-info'>
+      <h3 class='govuk-heading-m govuk-!-margin-bottom-1'>
+        <a href="product?id={{doc.id}}">
+          {{ doc.product.productName }}
+        </a>
+      </h3>
+      <p class='govuk-!-margin-bottom-3'>{{ doc.ukResponsiblePerson.name }}</p>
+      <p class='govuk-!-margin-bottom-1'>{{ doc.product.subSubCategory }}</p>
+      <p class='govuk-!-margin-bottom-2'>Added: {{ doc.product.dateAdded }}</p>
     </div>
-    <h3 class='govuk-heading-m govuk-!-margin-bottom-1'>
-      <a href="product?id={{doc.id}}">
-        {{ doc.product.productName }}
-      </a>
-    </h3>
-    <p class='govuk-!-margin-bottom-3'>{{ doc.ukResponsiblePerson.name }}</p>
-    <p class='govuk-!-margin-bottom-1'>{{ doc.product.subSubCategory }}</p>
-    <p class='govuk-!-margin-bottom-2'>Added: {{ doc.product.dateAdded }}</p>
+    {% if doc.preBrexit === 'false' %}
+      <div class='product-image'>
+      </div>
+    {% endif %}
     <div class='clearfix'>
       &nbsp;
     </div>

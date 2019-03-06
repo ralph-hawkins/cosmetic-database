@@ -38,11 +38,6 @@
     </div>
   </div>
   <div class="govuk-grid-row">
-    <div class='govuk-grid-column-one-third'>
-      <div class='product-image-large'>
-        &nbsp;
-      </div>
-    </div>
     <div class='govuk-grid-column-two-thirds'>
       <table class="govuk-table govuk-!-margin-bottom-3">
         <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Formulation</caption>
@@ -106,11 +101,126 @@
         </tbody>
       </table>
 
-      {{ govukDetails({
-        summaryText: "View frame formulation",
-        text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.",
-        classes: "govuk-!-margin-bottom-10"
-      }) }}
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Frame formulation
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <table class="govuk-table formulation-table">
+            <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-left-2">
+              {{ doc.product.subSubCategory }}
+            </caption>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Oils (for example, vegetable and/or mineral), waxes and fats (for example, long chain alcohols) 
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  30%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Silicones including volatile silicones (for example, cyclopentasiloxane, dimethicone) 
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  20%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Humectants (for example, glycerin, propylene glycol, PEG) 
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  20%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Thickeners (for example, carbomer, xanthan gum) 
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  12%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Ethanol (alcohol, alcohol denat.) 
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  10%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Additional ingredients (for example, vitamins, antioxidants, plant extracts)  
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  10%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Bulking agents (for example, talc, silica, nylon powder)  
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  5%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  UV filters  
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  5%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Emulsifying agents, anionic / amphoteric / non-ionic surfactants (for example, PEG stearate, ceteareth) 
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  5%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Preservatives, antimicrobials 
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  2%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Colorants 
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  2%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Parfum  
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  1%
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-padding-left-2" scope="row">
+                  Aqua to
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  100%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Substances</caption>
@@ -135,11 +245,11 @@
       </table>
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Responsible person</caption>
+        <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">UK Responsible person</caption>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="row">
-              UK responsible person
+              Organisation
             </th>
             <td class="govuk-table__cell">
               {{ doc.ukResponsiblePerson.name }}
@@ -166,6 +276,43 @@
           </tr>
         </tbody>
       </table>
+
+      {% if doc.euResponsiblePerson.name %}
+        <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">
+          Responsible person on product label
+        </caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Organisation
+            </th>
+            <td class="govuk-table__cell">
+              {{ doc.euResponsiblePerson.name }}
+            </td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              Address
+            </th>
+            <td class="govuk-table__cell">
+              {{ doc.euResponsiblePerson.address.address1 }}<br>
+              {% if doc.euResponsiblePerson.address.address2 %}
+                {{ doc.euResponsiblePerson.address.address2 }}<br>
+              {% endif %}
+              {% if doc.euResponsiblePerson.address.townOrCity %}
+                {{ doc.euResponsiblePerson.address.townOrCity }}<br>
+              {% endif %}
+              {% if doc.euResponsiblePerson.address.county %}
+                {{ doc.euResponsiblePerson.address.county }}<br>
+              {% endif %}
+              {{ doc.euResponsiblePerson.address.postCode }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {% endif %}
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-heading-m govuk-!-margin-bottom-3">Contact person</caption>
@@ -195,6 +342,13 @@
             </tr>
         </tbody>
       </table>
+    </div>
+    <div class='govuk-grid-column-one-third'>
+      {% if doc.preBrexit === 'true' %}
+        <div class='product-image-large'>
+          &nbsp;
+        </div>
+      {% endif %}
     </div>
   </div>
 {% endblock %}
