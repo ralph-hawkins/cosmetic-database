@@ -344,9 +344,14 @@
       </table>
     </div>
     <div class='govuk-grid-column-one-third'>
-      {% if doc.preBrexit === 'true' %}
+      {% if doc.preBrexit === 'false' %}
         <div class='product-image-large'>
-          &nbsp;
+          <div class='product-lid'>
+          </div>
+          <div class='product-bottle'>
+            <p class='product-name'>{{ doc.product.productName }}</p>
+            <p class='brand-name'>{{ doc.ukResponsiblePerson.name }}</p>
+          </div>
         </div>
       {% endif %}
     </div>

@@ -34,7 +34,15 @@
       <p class='govuk-!-margin-bottom-2'>Added: {{ doc.product.dateAdded }}</p>
     </div>
     {% if doc.preBrexit === 'false' %}
-      <div class='product-image'>
+    <div class='product-image-container'>
+      <div class='product-image-large'>
+          <div class='product-lid'>
+          </div>
+          <div class='product-bottle'>
+            <p class='product-name'>{{ doc.product.productName }}</p>
+            <p class='brand-name'>{{ doc.ukResponsiblePerson.name }}</p>
+          </div>
+        </div>
       </div>
     {% endif %}
     <div class='clearfix'>
