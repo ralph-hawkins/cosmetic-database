@@ -229,6 +229,52 @@ module.exports = {
         nanomaterials: 'None',
         formulationType: 'Frame formulation'
       }
+    },
+    {
+      id: '3',
+      preBrexit: 'true',
+      ukResponsiblePerson: {
+        name: 'Zinex',
+        address: {
+          address1: '70  Uxbridge Road',
+          address2: '',
+          townOrCity: 'Skinnet',
+          county: '',
+          postCode: 'KW12 7YE'
+        }
+      },
+      euResponsiblePerson: {
+        name: 'Zinex',
+        address: {
+          address1: '48  rue des Chaligny',
+          address2: '',
+          townOrCity: 'Nice',
+          county: 'Provence-Alpes-Côte d',
+          postCode: '06000',
+          country: 'France'
+        }
+      },
+      contactPerson: {
+        fullName: 'Charlotte Rodriguez',
+        email: 'charlotterodriguez@zinex.com',
+        phone: '03069 990643'
+      },
+      product: {
+        productName: 'Creamm',
+        category: 'Skin',
+        subCategory: 'Skin care products',
+        subSubCategory: 'Skin lightening products',
+        dateAdded: '3 March 2019',
+        ethanol: '0%',
+        isopropanol: '0%',
+        essentialOils: '0%',
+        camphor: '0.5%',
+        eucalyptol: '0.1%',
+        vitaminAOrDerivatives: '1%',
+        cmr: 'None',
+        nanomaterials: 'None',
+        formulationType: 'Frame formulation'
+      }
     }
   ]
 }
